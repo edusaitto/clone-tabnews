@@ -30,14 +30,14 @@ async function query(queryObject) {
     client = await getNewClient();
     const result = await client.query(queryObject);
     return result;
-  } catch (e) {
-    throw e;
   } finally {
     await client.end();
   }
 }
 
-export default {
+const database = {
   query,
   getNewClient,
 };
+
+export default database;
